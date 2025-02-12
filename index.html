@@ -39,26 +39,13 @@
         }
 
         // Get details from URL
-        let name = getQueryParam("name");
-        let partner = getQueryParam("partner");
+        let couple = getQueryParam("couple") || "My Love";
         let customMessage = getQueryParam("msg") || "You are my everything! ❤️";
         let videoId = getQueryParam("video") || "dQw4w9WgXcQ"; // Default video ID
 
-        // Handle name formatting
-        let displayName = "";
-        if (name && partner) {
-            displayName = `${name} & ${partner}`;
-        } else if (name) {
-            displayName = name;
-        } else if (partner) {
-            displayName = partner;
-        } else {
-            displayName = "My Love";
-        }
-
         // Display the custom love message
         document.getElementById("message").innerHTML = 
-            `💖 ${displayName}, ${customMessage} 💖`;
+            `💖 ${couple}, ${customMessage} 💖`;
 
         // Set the YouTube video
         document.getElementById("loveVideo").src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
