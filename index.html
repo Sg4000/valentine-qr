@@ -32,23 +32,42 @@
     <iframe id="loveVideo" src="" frameborder="0" allowfullscreen></iframe>
 
     <script>
+        // List of love messages
+        const messages = [
+            "You make my heart skip a beat! ❤️",
+            "Every moment with you is special! 💖",
+            "You are my everything! 🥰",
+            "Love you more than words can say! 💕",
+            "Happy Valentine's Day, my love! ❤️"
+        ];
+
+        // List of YouTube video IDs
+        const videoIds = [
+            "rIocYOk6pOY", // Your provided video
+            "xvZqHgFz51I", // Example romantic song 1
+            "JGwWNGJdvx8", // Example romantic song 2
+            "OpQFFLBMEPI"  // Example romantic song 3
+        ];
+
         // Function to get URL parameters
         function getQueryParam(param) {
             let urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param) || "";
         }
 
-        // Get details from URL
+        // Get details from URL (optional, for custom name)
         let couple = getQueryParam("couple") || "My Love";
-        let customMessage = getQueryParam("msg") || "You are my everything! ❤️";
-        let videoId = getQueryParam("video") || "dQw4w9WgXcQ"; // Default video ID
 
-        // Display the custom love message
+        // Randomly select a message and video
+        let randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        let randomVideo = videoIds[Math.floor(Math.random() * videoIds.length)];
+
+        // Display the message
         document.getElementById("message").innerHTML = 
-            `💖 ${couple}, ${customMessage} 💖`;
+            `💖 ${couple}, ${randomMessage} 💖`;
 
         // Set the YouTube video
-        document.getElementById("loveVideo").src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        document.getElementById("loveVideo").src = `https://www.youtube.com/embed/${randomVideo}?autoplay=1`;
     </script>
 </body>
 </html>
