@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffebee;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        h1 {
+            color: #e91e63;
+        }
+        p {
+            font-size: 20px;
+        }
+        iframe {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Special Valentine’s Message! ❤️</h1>
+        <p id="message">Loading...</p>
+        <iframe id="song" src="" frameborder="0" allowfullscreen></iframe>
+        <br><br>
+        <button onclick="generateMessage()">See Another Surprise 💖</button>
+    </div>
+
+    <script>
+        const messages = [
+            "You are the sunshine in my life! ☀️❤️",
+            "Every moment with you is a treasure! 💎",
+            "I love you more than words can express! 😘",
+            "My heart beats only for you! ❤️💓"
+        ];
+        
+        const songs = [
+            "https://www.youtube.com/embed/KkGVmN68ByU", // Example YouTube links
+            "https://www.youtube.com/embed/o8pQLtHTPaI",
+            "https://www.youtube.com/embed/450p7goxZqg"
+        ];
+
+        function generateMessage() {
+            let randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            let randomSong = songs[Math.floor(Math.random() * songs.length)];
+            
+            document.getElementById("message").innerText = randomMessage;
+            document.getElementById("song").src = randomSong;
+        }
+        
+        window.onload = generateMessage;
+    </script>
+</body>
+</html>
